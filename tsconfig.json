@@ -2,6 +2,10 @@
     "compilerOptions": {
       "noImplicitAny": false,
       "experimentalDecorators": true,
-      "emitDecoratorMetadata": true
-    }
+      "emitDecoratorMetadata": true,
+    },
+    "ts-node": {
+      "esm": true,
+      "experimentalSpecifierResolution": "node"
+  }
 }
