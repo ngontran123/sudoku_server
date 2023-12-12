@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prestart": "chmod +x node_modules/.bin/ts-node",
     "start": "ts-node src/server.ts",
     "build":"tsc",
     "dev": "nodemon server.ts"
