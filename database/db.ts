@@ -1,7 +1,8 @@
 import mongoose, { mongo } from "mongoose";
 require('dotenv').config();
 const Connection=()=>{
-    const URL='mongodb://0.0.0.0:27017/SudokuDb?directConnection=true';
+    const URL=process.env.DATABASE_URL;
+    console.log('Database connection string is:'+URL);
     try{
         mongoose.connect(URL);
         console.log("Database connected successfully");
