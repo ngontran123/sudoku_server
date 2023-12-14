@@ -8,6 +8,6 @@ export default (httpServer) => {
     },
   });
 
-  useSocketServer(io, { controllers: [__dirname + "/api/controllers/*.ts"] });
+  useSocketServer(io, { controllers: [__dirname + "/api/controllers/*.js"] });
   return io;
 };
