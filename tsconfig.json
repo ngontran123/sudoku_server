@@ -3,7 +3,6 @@
       "noImplicitAny": false,
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
-      "outDir": "dist"
     },
     "ts-node": {
       "esm": true,
