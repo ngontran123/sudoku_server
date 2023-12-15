@@ -54,10 +54,10 @@ const hbs=require('nodemailer-express-handlebars');
 const path=require('path');
 const handlebarsOption={
     viewEngine :{
-        partialsDir: path.resolve('../src/views/'),
+        partialsDir: path.resolve('.././src/views/'),
         defaultLayout: false,
     },
-    viewPath:path.resolve('../src/views/')
+    viewPath:path.resolve('.././src/views/')
 };
 
 transportEmail.use('compile',hbs(handlebarsOption));
