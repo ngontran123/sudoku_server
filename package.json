@@ -5,8 +5,8 @@
   "scripts": {
     "prestart": "chmod +x node_modules/.bin/ts-node",
     "start": "ts-node src/server.ts",
-    "build":"tsc",
-    "cpdir":"copyfiles /opt/render/project/src/src/views/* /opt/render/project/src/dist/",
+    "build":"npm run cpdir && tsc",
+    "cpdir": "copyfiles src/views/* dist/",
     "dev": "nodemon server.ts"
   },
   "dependencies": {
