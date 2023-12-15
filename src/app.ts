@@ -50,7 +50,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.set('views', path.join('/opt/render/project/src/src', 'views'));
+app.set('views', path.join('/opt/render/project/sudokusv/src', 'views'));
 app.set('view engine','jade');
 
 export default app;
