@@ -6,7 +6,7 @@
     "prestart": "chmod +x node_modules/.bin/ts-node",
     "start": "ts-node src/server.ts",
     "build":"tsc",
-    "cpdir":"copyfiles src/views/* dist/",
+    "cpdir":"copyfiles /opt/render/project/sudokusv/src/views/* /opt/render/project/sudokusv/dist/",
     "dev": "nodemon server.ts"
   },
   "dependencies": {
