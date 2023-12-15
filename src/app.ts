@@ -50,7 +50,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join('./src', 'views'));
 app.set('view engine','jade');
 
 export default app;
