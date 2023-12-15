@@ -31,4 +31,5 @@ function onError(error) {
     var addr = server.address();
     var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
     console.log("Server Running on Port:", port);
+    console.log(`${"The dirname is:"+__dirname}`);
   }
