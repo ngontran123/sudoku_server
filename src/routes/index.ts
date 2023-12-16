@@ -54,10 +54,10 @@ const hbs=require('nodemailer-express-handlebars');
 const path=require('path');
 const handlebarsOption={
     viewEngine :{
-        partialsDir: path.resolve('.././src/views/'),
+        partialsDir: path.resolve(`${process.cwd()}/src/views/`),
         defaultLayout: false,
     },
-    viewPath:path.resolve('.././src/views/')
+    viewPath:path.resolve(`${process.cwd()}/src/views/`)
 };
 
 transportEmail.use('compile',hbs(handlebarsOption));
@@ -84,7 +84,7 @@ transportEmail.use('compile',hbs(handlebarsOption));
        };
        transportEmail.sendMail(emailContentConfig,(error,info)=>{
         if(error)
-        {  
+        {  res.status(400).send({'message':`Có lỗi xảy ra khi gửi mail:${error}`});
            throw Error(error);
         }
         console.log("Send mail successfully:"+info);
