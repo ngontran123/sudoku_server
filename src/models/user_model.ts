@@ -10,7 +10,7 @@ const userSchema=new Schema({
     avatar:{type:String,required:true},
     created_date:{type:String,required:true},
     display_name:{type:String,required:true},
-    motto:{type:String,required:true}
+    motto:{type:String,required:false}
 });
 autoIncrement.initialize(mongoose.connection);
 userSchema.plugin(autoIncrement.plugin,'user');
