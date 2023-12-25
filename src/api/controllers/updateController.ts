@@ -86,6 +86,13 @@ export class UpdateController
         socket.emit("on_update_game",{gameBoard:room[message.room],solved:sol[message.room]});
       }
     }
+@OnMessage("update_live_board")
+public async updateLiveBoard(@SocketIO() io:Server,@ConnectedSocket() socket:Socket,@MessageBody() message:any)
+{
+   const gameRoom=this.getSocketGameRoom(socket);
+   socket.to(gameRoom).emit("on_update_live_board",{board:message.board});
+}
+
     @OnMessage("timer_game")
     public async timerGame(@ConnectedSocket() socket:Socket,@SocketIO() io:Server,@MessageBody() message:any)
     { const gameRoom=this.getSocketGameRoom(socket);

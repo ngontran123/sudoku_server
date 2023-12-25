@@ -12,6 +12,8 @@ import * as cors from 'cors';
 import 'reflect-metadata';
 import Connection from '../database/db';
 import bodyParser from 'body-parser';
+import { rateLimit } from 'express-rate-limit';
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -39,6 +41,16 @@ app.use(function(req, res, next) {
   );
   next();
 });
+
+const limiter=rateLimit({
+  windowMs:15*60*1000,
+  limit:300,
+  legacyHeaders:false,
+  standardHeaders:'draft-7'
+});
+
+app.use(limiter);
+
 app.use(nocache());
 // error handler
 app.use(function(err, req, res, next) {
