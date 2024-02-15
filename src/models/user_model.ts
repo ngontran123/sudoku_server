@@ -60,6 +60,23 @@ user_id:{type:Number,require:true},
 comment_id:{type:Number,require:true}
 })
 
+const chatGroupSchema = new Schema(
+{
+_id:{type:Number,require:false},
+group_name:{type:String,require:true},
+});
+
+const messageSchema = new Schema
+(
+    {
+      _id:{type:Number,require:false},
+      sender_id:{type:Number,require:true},
+      group_id:{type:Number,require:true},
+      content:{type:String,require:true},
+      timestamp:{type:String,require:true},
+      is_first:{type:Boolean,require:true}
+    });
+
 const question_level=mongoose.model('question',questionLevelSchema,'QuestionLevel');
 
 roomSchema.plugin(autoIncrement.plugin,'room');
@@ -72,6 +89,10 @@ commentSchema.plugin(autoIncrement.plugin,'comment');
 
 commentDetailSchema.plugin(autoIncrement.plugin,"commentDetail");
 
+chatGroupSchema.plugin(autoIncrement.plugin,'chatGroup');
+
+messageSchema.plugin(autoIncrement.plugin,'message');
+
 const room_user=mongoose.model('room',roomSchema,'Room');
 
 const user_room_detail=mongoose.model('userRoomDetail',userRoomDetailSchema,'UserRoomDetail');
@@ -82,5 +103,9 @@ const comment=mongoose.model('comment',commentSchema,'Comment');
 
 const comment_detail=mongoose.model('commentDetail',commentDetailSchema,'CommentDetail');
 
-export {user,question_level,room_user,user_room_detail,single_board_detail,comment,comment_detail};
+const chat_group=mongoose.model('chatGroup',chatGroupSchema,'ChatGroup');
+
+const message_sent = mongoose.model('message',messageSchema,'Message');
+
+export {user,question_level,room_user,user_room_detail,single_board_detail,comment,comment_detail,chat_group,message_sent};
 
